@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "react-app"
+  ],
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "never"
+    ],
+    "no-multi-spaces": "error"
+  }
+}
