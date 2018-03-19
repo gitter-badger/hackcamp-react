@@ -67,9 +67,7 @@ class _MovieCommentForm extends React.Component {
           />
         </div>
 
-        <button className="btn btn-primary">
-          Add
-        </button>
+        <button className="btn btn-primary">Add</button>
       </form>
     );
   }
@@ -89,24 +87,10 @@ const mapStateToProps = state => ({
   token: state.auth.token
 });
 
-const mapDispatchToState = ({
+const mapDispatchToState = {
   // Get the function to dispatch the new comment to redux
-});
+};
 
 export const MovieCommentForm = connect(mapStateToProps, mapDispatchToState)(
   _MovieCommentForm
 );
-
-// TODO uncomment the code below when you're ready to work with redux forl
-/**
- * const validate = data => {
-  // Implement some validation in this function
-  // It validates the form for redux form
-  const errors = {};
-  return errors;
-};
-
- export const MovieCommentForm = reduxForm({form: 'comments', validate})(
-  ConnectedMovieCommentForm
-);
-**/

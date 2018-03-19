@@ -97,29 +97,7 @@ You have to plug redux for the comments
 * In the MovieComment component you need to be able to delete a movie from Redux
 * Finally in the MovieCommentForm you need to be able to add a comment to Redux
 
-#### Redux forms
-
-When the movies and the comments are reduxified, you can plug redux forms in your comment form.
-Redux form will help you manage your form.
-
-When redux form is plugged in your app, implement the validate function
-
-The author field :
-* is required 
-* must start with an Upper case letter
-
-The content field
-* is required 
-* cannot be longer than 150 characters
-
-> We created a FormField component, you have to use it in your form but you have to implement it. 
-
-The form must show the errors, even before the user has clicked on `add`
-> Hint : use field level validation
-
-The documentation can be found here : http://redux-form.com/6.8.0/docs/api/
-
-#### Optimistic insert
+#### Bonus: Optimistic insert
 The goal here is to deal with slow operations. Imagine you have a very slow server, you don't want the user to wait 2 seconds before seeing his comment added to a movie.
 So how does it work? When you post a comment, before posting it to the server you add it to your redux store (with a randomly generated id), then if the post to the server is successful you update your store with the id returned by the server
 otherwise you delete the comment from the store.
