@@ -23,48 +23,6 @@ The goal of this HackJam 4 is to guide you through some advanced concepts of Red
 
 ### Todos
 
-#### Middlewares
-##### Introduction
-Middlewares allow you to do some custom work on actions without having that logic in the reducers.
-
-Middlewares are higher order functions.
-
-Put simply, they're functions returning funtions returning functions.
-![https://i.imgur.com/6WCIHEQ.jpg](https://i.imgur.com/6WCIHEQ.jpg)
-
-On a more serious note, they take the store, a next function (the next middleware in the stack) and an action.
-
-If you've already worked with express or other frameworks that uses middleware you probably know how it works already.
-
-Middlewares allow you to do custom work on things passing your pipeline, be it http requets or the redux store in our case, there's a lot of use cases for them.
-
-##### Exercise
-During this first part of the HackJam you're gonna have to write a few middlewares
-
-The first middleware we want you to write is the logger middleware.
-
-This middleware logs the current action and the next state of the store after running that action.
-
-It comes pretty handy when working on redux.
-
-To do that, run *yarn test src/\_\_tests\_\_/middlewares_1/logger.spec.js*
-
-When you're done with the logger middleware move to the freeze middleware.
-
-As you probably know already, you can not modify redux's state, you always need to return a new state in your reducer without mutating the previous state
-
-To enforce that, let's write a middleware that throws an exception when something tries to mutate the state.
-
-Use the following library to freeze your state: [https://github.com/jsdf/deep-freeze](https://github.com/jsdf/deep-freeze
-)
-
-Run the test using *yarn test src/\_\_tests\_\_/middlewares_1/freeze.spec.js*
-
-You can also run yarn *test:middlewares:1* to run both those at once.
-
-##### Using them
-When you're done with your middlewares, use them in store/store.js
-
 #### Reduxify the movies
 
 Store the movies with redux
@@ -112,6 +70,50 @@ To test that everything works, add to the docker-compose.yml file those 2 lines 
         -SLOW=true
 
 This will fore the server to wait 2 seconds before responding to each request, so you can easily test your optimistic insert
+
+#### Bonus: Middlewares
+##### Introduction
+Middlewares allow you to do some custom work on actions without having that logic in the reducers.
+
+Middlewares are higher order functions.
+
+Put simply, they're functions returning funtions returning functions.
+![https://i.imgur.com/6WCIHEQ.jpg](https://i.imgur.com/6WCIHEQ.jpg)
+
+On a more serious note, they take the store, a next function (the next middleware in the stack) and an action.
+
+If you've already worked with express or other frameworks that uses middleware you probably know how it works already.
+
+Middlewares allow you to do custom work on things passing your pipeline, be it http requets or the redux store in our case, there's a lot of use cases for them.
+
+##### Exercise
+During this first part of the HackJam you're gonna have to write a few middlewares
+
+The first middleware we want you to write is the logger middleware.
+
+This middleware logs the current action and the next state of the store after running that action.
+
+It comes pretty handy when working on redux.
+
+To do that, run *yarn test src/\_\_tests\_\_/middlewares_1/logger.spec.js*
+
+When you're done with the logger middleware move to the freeze middleware.
+
+As you probably know already, you can not modify redux's state, you always need to return a new state in your reducer without mutating the previous state
+
+To enforce that, let's write a middleware that throws an exception when something tries to mutate the state.
+
+Use the following library to freeze your state: [https://github.com/jsdf/deep-freeze](https://github.com/jsdf/deep-freeze
+)
+
+Run the test using *yarn test src/\_\_tests\_\_/middlewares_1/freeze.spec.js*
+
+You can also run yarn *test:middlewares:1* to run both those at once.
+
+##### Using them
+When you're done with your middlewares, use them in store/store.js
+
+
 #### Bonus: Offline
 
 Use Redux Persist to persist the list of movies and the list of comments
